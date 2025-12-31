@@ -86,4 +86,39 @@ Experimental results demonstrate improved performance compared to traditional AA
 ---
 
 ## 📁 Project Structure (Example)
+eye-tracking-aac/
+│── models/
+│── datasets/
+│── ui/
+│── utils/
+│── main.py
+│── requirements.txt
+└── README.md
+
+
+---
+
+## 🛠️ Installation & Setup
+
+bash
+git clone https://github.com/your-username/eye-tracking-aac.git
+cd eye-tracking-aac
+pip install -r requirements.txt
+python main.py
+🔮 Future Enhancements
+
+-Blink / wink-based selection confirmation
+-Improved personalized prediction using adaptive learning
+-Mobile and web deployment
+-Advanced multilingual speech synthesis
+-User studies for cognitive load evaluation
+
+👨‍💻 Author
+
+G. G. Naveen
+B.Tech – Artificial Intelligence and Data Science
+📜 License
+
+This project is developed for academic and research purposes.
+License details can be added as required.
 

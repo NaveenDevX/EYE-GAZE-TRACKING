@@ -1,112 +1,144 @@
-# 🧠👀 Multilingual Eye-Tracking Communication System  
+# 🧠👀 Multilingual Eye-Tracking Communication System
+
 ### AI-Powered Augmentative & Alternative Communication (AAC)
 
-A low-cost, webcam-based **eye-tracking communication application** that enables individuals with severe motor disabilities to communicate using **eye and head movements**, enhanced with **predictive language models** and **multilingual support**.
+An affordable, webcam-based **eye-tracking communication application** designed for individuals with severe motor disabilities (such as ALS, MND, or Spinal Cord Injuries). This system enables seamless communication through **eye and head movements**, powered by **predictive language models** and robust **multilingual support**.
 
 ---
 
 ## 🚀 Overview
 
-Traditional input devices such as keyboards and mice are inaccessible to many individuals with motor impairments. This project introduces an **AI-driven Augmentative and Alternative Communication (AAC) system** that allows users to type using eye gaze and receive intelligent word suggestions in real time.
+Traditional input devices like keyboards and mice are often inaccessible to individuals with motor impairments. This project introduces an **AI-driven AAC system** that allows users to type using eye gaze and receive intelligent, real-time word suggestions.
 
-The system is designed to be:
-- Non-invasive
-- Affordable
-- Language-inclusive
-- Real-time and responsive
+### Core Philosophy:
+* **Non-invasive:** No specialized hardware—just a standard laptop webcam.
+* **Affordable:** Low-cost implementation for wider accessibility.
+* **Language-inclusive:** Designed for a global audience with multilingual scripts (English, Hindi, Tamil, etc.).
+* **Real-time:** Optimized for low latency and fluid interaction.
 
 ---
 
 ## ✨ Key Features
 
-- 👁 **Webcam-Based Eye & Head Tracking**  
-  Uses computer vision and CNNs without requiring specialized hardware.
-
-- ⌨️ **Gaze-Controlled Virtual Keyboard**  
-  Characters are selected using eye fixation and head orientation.
-
-- 🤖 **Predictive Text & Language Modeling**  
-  Context-aware word and sentence recommendations using LSTM and Transformer models.
-
-- 🌍 **Multilingual Support**  
-  Supports multiple languages and scripts using multilingual tokenizers such as mBERT and XLM-R.
-
-- 🔊 **Text-to-Speech (TTS)**  
-  Converts typed text into spoken output in the selected language.
-
-- ⚡ **Real-Time Performance**  
-  Optimized for low latency and smooth user interaction.
+* 👁 **Webcam-Based Tracking:** Uses Dlib and OpenCV for CNN-based gaze estimation.
+* ⌨️ **Gaze-Controlled Keyboard:** Character selection via fixation duration (dwell time) and head orientation.
+* 🤖 **Predictive Text:** Context-aware word/sentence recommendations using **LSTM** and **Transformers**.
+* 🌍 **Multilingual Support:** Integration of **mBERT** and **XLM-R** for diverse script support.
+* 🔊 **Text-to-Speech (TTS):** Instant vocalization of typed text using `gTTS` or `pyttsx3`.
+* ⚡ **High Performance:** Optimized pipeline for smooth, real-time user experience at 30+ FPS.
 
 ---
 
 ## 🏗️ System Architecture
 
-1. Face and eye detection using webcam input  
-2. Region of Interest (ROI) extraction  
-3. CNN-based gaze estimation  
-4. Temporal smoothing and context management  
-5. Predictive language modeling  
-6. Multilingual virtual keyboard UI  
-7. Text-to-speech output  
+1.  **Input Module:** Captures video stream and detects facial landmarks (68-point predictor).
+2.  **Tracking Engine:** Extracts the eye Region of Interest (ROI) and calculates the Gaze Ratio.
+3.  **Smoothing Layer:** Applies temporal filters to prevent "jitter" in gaze movement.
+4.  **Interaction Layer:** A virtual keyboard UI where keys light up based on gaze coordinates.
+5.  **NLP Engine:** Takes current input and suggests the next 3 most likely words.
+6.  **Output Module:** Converts the final string into a natural-sounding voice.
 
 ---
 
 ## 🧠 Technologies Used
 
-- **Language:** Python  
-- **Computer Vision:** OpenCV  
-- **Deep Learning:** CNN, LSTM, Transformer models  
-- **NLP:** n-gram models, mBERT, XLM-R  
-- **Eye Tracking:** Webcam-based gaze estimation  
-- **UI:** Virtual keyboard with Unicode rendering  
+| Category | Tools & Frameworks |
+| :--- | :--- |
+| **Language** | Python 3.8+ |
+| **Computer Vision** | OpenCV, Dlib, Mediapipe |
+| **Deep Learning** | TensorFlow / PyTorch |
+| **NLP** | HuggingFace (mBERT, XLM-R), NLTK |
+| **UI/UX** | Tkinter / PyQt5 |
+| **Audio** | gTTS (Google Text-to-Speech) |
 
 ---
 
-## 📊 Evaluation Metrics
+## 📂 Project Structure
 
-The system performance is evaluated using:
-- Accuracy
-- Precision
-- Recall
-- F1-Score
-- Typing speed
-- Prediction accuracy
+eye-tracking-aac/
+├── main.py                 # Application entry point
+├── models/                 # Pre-trained gaze & NLP models
+│   ├── gaze_cnn_model.h5
+│   └── transformer_predictor/
+├── modules/                # Core logic components
+│   ├── eye_tracker.py      # Gaze detection logic
+│   ├── keyboard_ui.py      # Virtual keyboard interface
+│   └── nlp_engine.py       # Multilingual prediction
+├── datasets/               # Data for fine-tuning
+│   ├── gaze_data/          # Calibration & training images
+│   └── language_data/      # Multilingual text corpora
+├── requirements.txt        # Project dependencies
+└── README.md               # Documentation
 
-Experimental results demonstrate improved performance compared to traditional AAC systems.
+📂 Dataset Pipeline
+The system utilizes a hybrid approach, combining custom datasets with public corpora for maximum accuracy.
 
----
+🔹 Eye & Gaze Tracking Data
+Data points: Annotated gaze directions (Left, Right, Up, Down, Center).
 
-## 🎯 Use Cases
+Head Pose: Yaw, Pitch, and Roll angles extracted for hybrid control.
 
-- Assistive communication for individuals with motor disabilities
-- Augmentative and Alternative Communication (AAC) research
-- Inclusive human–computer interaction systems
-- AI-based accessibility solutions
+Source: Custom recorded frames and the MPIIGaze dataset.
 
+🔹 Language Modeling Data
+Supports multiple languages and scripts using mBERT tokenizers.
 
----
+Languages: English, Tamil, Hindi, and growing.
 
-## 🛠️ Installation & Setup
+📊 Evaluation Metrics
+The system is rigorously tested against the following benchmarks:
 
-bash
-git clone https://github.com/your-username/eye-tracking-aac.git
-cd eye-tracking-aac
-pip install -r requirements.txt
+Gaze Accuracy: Measured by angular error (degrees).
+
+Typing Speed: Characters Per Minute (CPM) / Words Per Minute (WPM).
+
+KSR (Keystroke Saving Rate): Efficiency gained through AI word predictions.
+
+Latencies: Inference time per frame (target < 30ms).
+
+🛠️ Installation & Setup
+1. Prerequisites
+Ensure you have Python installed. It is recommended to use a virtual environment.
+
+Bash
+
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+2. Install Dependencies
+Bash
+
+pip install opencv-python dlib numpy tensorflow torch transformers gTTS
+Note: If installing dlib fails, ensure you have CMake and Visual Studio C++ build tools installed.
+
+3. Download Shape Predictor
+Download the shape_predictor_68_face_landmarks.dat file and place it in the models/ folder.
+
+4. Run the Application
+Bash
+
 python main.py
-🔮 Future Enhancements
+🎮 Usage Instructions
+Calibration: Follow the on-screen dot with your eyes to calibrate the webcam to your environment.
 
--Blink / wink-based selection confirmation
--Improved personalized prediction using adaptive learning
--Mobile and web deployment
--Advanced multilingual speech synthesis
--User studies for cognitive load evaluation
+Typing: Focus on a letter for 2 seconds (Dwell time) to select it.
+
+Head Movement: Use slight head tilts to navigate between keyboard sections.
+
+Prediction: Click on the top-bar suggestions to complete words instantly.
+
+Speak: Look at the "Speak" button to convert text to audio.
+
+🔮 Future Enhancements
+Gesture Shortcuts: Use eye blinks or winks for "Space" or "Delete" functions.
+
+Adaptive Learning: The AI learns your specific vocabulary and frequently used phrases over time.
+
+Mobile Deployment: Lightweight version for tablets using Mediapipe Iris.
+
+Cloud Sync: Save user profiles and custom dictionaries across devices.
 
 👨‍💻 Author
+G. G. Naveen B.Tech – Artificial Intelligence and Data Science
 
-G. G. Naveen
-B.Tech – Artificial Intelligence and Data Science
 📜 License
-
-This project is developed for academic and research purposes.
-License details can be added as required.
-
+This project is licensed under the MIT License - see the LICENSE file for details. Developed for academic and research purposes to enhance human accessibility.

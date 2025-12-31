@@ -53,24 +53,9 @@ Traditional input devices like keyboards and mice are often inaccessible to indi
 
 ---
 
-## 📂 Project Structure
 
-eye-tracking-aac/
-├── main.py                 # Application entry point
-├── models/                 # Pre-trained gaze & NLP models
-│   ├── gaze_cnn_model.h5
-│   └── transformer_predictor/
-├── modules/                # Core logic components
-│   ├── eye_tracker.py      # Gaze detection logic
-│   ├── keyboard_ui.py      # Virtual keyboard interface
-│   └── nlp_engine.py       # Multilingual prediction
-├── datasets/               # Data for fine-tuning
-│   ├── gaze_data/          # Calibration & training images
-│   └── language_data/      # Multilingual text corpora
-├── requirements.txt        # Project dependencies
-└── README.md               # Documentation
 
-📂 Dataset Pipeline
+## 📂 Dataset Pipeline
 The system utilizes a hybrid approach, combining custom datasets with public corpora for maximum accuracy.
 
 🔹 Eye & Gaze Tracking Data
@@ -85,7 +70,7 @@ Supports multiple languages and scripts using mBERT tokenizers.
 
 Languages: English, Tamil, Hindi, and growing.
 
-📊 Evaluation Metrics
+## 📊 Evaluation Metrics
 The system is rigorously tested against the following benchmarks:
 
 Gaze Accuracy: Measured by angular error (degrees).
@@ -96,7 +81,7 @@ KSR (Keystroke Saving Rate): Efficiency gained through AI word predictions.
 
 Latencies: Inference time per frame (target < 30ms).
 
-🛠️ Installation & Setup
+## 🛠️ Installation & Setup
 1. Prerequisites
 Ensure you have Python installed. It is recommended to use a virtual environment.
 
@@ -117,7 +102,7 @@ Download the shape_predictor_68_face_landmarks.dat file and place it in the mode
 Bash
 
 python main.py
-🎮 Usage Instructions
+## 🎮 Usage Instructions
 Calibration: Follow the on-screen dot with your eyes to calibrate the webcam to your environment.
 
 Typing: Focus on a letter for 2 seconds (Dwell time) to select it.
@@ -128,7 +113,7 @@ Prediction: Click on the top-bar suggestions to complete words instantly.
 
 Speak: Look at the "Speak" button to convert text to audio.
 
-🔮 Future Enhancements
+## 🔮 Future Enhancements
 Gesture Shortcuts: Use eye blinks or winks for "Space" or "Delete" functions.
 
 Adaptive Learning: The AI learns your specific vocabulary and frequently used phrases over time.
@@ -137,8 +122,8 @@ Mobile Deployment: Lightweight version for tablets using Mediapipe Iris.
 
 Cloud Sync: Save user profiles and custom dictionaries across devices.
 
-👨‍💻 Author
+## 👨‍💻 Author
 G. G. Naveen B.Tech – Artificial Intelligence and Data Science
 
-📜 License
+## 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details. Developed for academic and research purposes to enhance human accessibility.

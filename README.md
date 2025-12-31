@@ -83,18 +83,6 @@ Experimental results demonstrate improved performance compared to traditional AA
 - Inclusive human–computer interaction systems
 - AI-based accessibility solutions
 
----
-
-## 📁 Project Structure (Example)
-eye-tracking-aac/
-│── models/
-│── datasets/
-│── ui/
-│── utils/
-│── main.py
-│── requirements.txt
-└── README.md
-
 
 ---
 
